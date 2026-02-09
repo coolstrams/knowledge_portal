@@ -15,3 +15,10 @@ graph.add_edge("memory", "retrieve")
 graph.add_edge("retrieve", "prompt")
 
 rag_app = graph.compile()
+
+
+async def run_rag_graph(session_id: str, query: str):
+    return await rag_app.ainvoke({
+        "session_id": session_id,
+        "query": query
+    })
