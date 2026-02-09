@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "knowledge-portal"
+version = "0.1.0"
+description = "知识门户"
+authors = ["caik"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^1.0.8"
+langgraph = "^1.0.8"
+langchain-openai = "^1.1.6"
+langchain-community = "^0.3.30"
+fastapi = "^0.115.0"
+uvicorn = "^0.23.1"
+pydantic = "^2.7.2"
+sqlalchemy = "^2.0.41"
+alembic = "^1.13.3"
+sqlmodel = "^0.0.14"
+orjson = "^3.11.0"
+pymysql = "^1.0.2"
+pyyaml = "^6.0.1"
+loguru = "^0.7.1"
+cryptography = "^43.0.0"
+sqlacodegen = "^3.2.0"
+pydantic_settings = "^2.10.0"
+httpx = "^0.28.1"
+python-dotenv = "^1.2.1"
+redis = "^5.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
