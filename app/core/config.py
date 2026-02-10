@@ -11,7 +11,8 @@ class Settings(BaseSettings):
     debug: bool = False
 
     # 数据库配置
-    database_url: str = "mysql+pymysql://user:password@localhost/knowledge_portal"
+    # database_url: str = "mysql+pymysql://user:password@localhost/knowledge_portal"
+    database_url: str = "mysql+pymysql://docuser:123456@127.0.0.1:3306/dassdoc?charset=utf8mb4"
     database_echo: bool = False
 
     REDIS_HOST: str = "127.0.0.1"
