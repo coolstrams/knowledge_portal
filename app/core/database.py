@@ -18,3 +18,9 @@ def get_db() -> Session:
         yield db
     finally:
         db.close()
+
+
+def get_db_session():
+    with Session(engine) as session:
+        yield session
+        

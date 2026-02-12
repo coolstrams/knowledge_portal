@@ -8,7 +8,8 @@ async def retrieve_node(state: RAGState):
         resp = await client.post(
             KB_SEARCH_URL,
             json={
-                "query": state["query"],
+                # "query": state["query"],
+                "query": "什么是 LangChain",
                 "top_k": 3
             }
         )

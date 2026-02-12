@@ -1,6 +1,15 @@
 from fastapi import FastAPI
-from app.api.chat import router as chat_router
+from sqlmodel import SQLModel
+from app.api import router
+from app.core.database import engine
 
 app = FastAPI(title="RAG HTTP SSE Service")
 
-app.include_router(chat_router, prefix="/chat")
+
+@app.on_event("startup")
+def on_startup():
+    # 自动建表
+    SQLModel.metadata.create_all(engine)
+
+
+app.include_router(router)

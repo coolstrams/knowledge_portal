@@ -2,15 +2,15 @@ from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 
 from app.schemas.chat import ChatRequest
-from app.graph.rag_graph import run_rag_graph
+from app.graph.rag_graph import run_rag_graph_old
 from app.graph.nodes.llm import llm_stream
 from app.utils.sse import sse_json_event
 from app.utils.id import gen_datetime_uuid16
 
-router = APIRouter()
+router = APIRouter(tags=["chat"])
 
 
-@router.post("/stream")
+@router.post("/chat/stream")
 async def chat_stream(req: ChatRequest):
 
     async def generator():
@@ -19,9 +19,9 @@ async def chat_stream(req: ChatRequest):
         message_id = gen_datetime_uuid16()
 
         try:
-            state = await run_rag_graph(
+            state = await run_rag_graph_old(
+                query=req.query,
                 session_id=req.session_id,
-                query=req.query
             )
 
             async for token in llm_stream(state):

@@ -8,11 +8,11 @@ class ChatMessageItem(BaseModel):
 
 
 class ChatRequest(BaseModel):
-    modelID: str = "qwen-plus" | None
-    stream: bool = True | None
-    messages: list[ChatMessageItem] | [{"role": "user", "content": "hello"}]
-    enableThinking: bool = True | None
-    conversationID: str | ""
-    parentMessageID: str | ""
+    modelID: str = "qwen-plus"
+    stream: bool = True
+    messages: list[ChatMessageItem]
+    enableThinking: bool = True
+    conversationID: str
+    parentMessageID: str
     session_id: str
     query: str
